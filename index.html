@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Drihany | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Press Start 2P", monospace;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-bottom: 4px solid white;
+      box-sizing: border-box;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    header p {
+      margin: 0.5rem 0 1rem 0;
+      font-size: 1rem;
+    }
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+    .links a {
+      background: white;
+      color: black;
+      padding: 0.6rem 1.2rem;
+      border: 3px solid black;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      display: inline-block;
+      font-weight: bold;
+      min-width: 120px;
+      text-align: center;
+    }
+    .links a:hover {
+      background: black;
+      color: white;
+      border: 3px solid white;
+    }
+    .projects {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+    }
+    .project {
+      border: 3px solid white;
+      padding: 2rem;
+      background: #111;
+      box-shadow: 4px 4px white;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      text-align: center;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      background: #fff;
+      color: #000;
+      box-shadow: 4px 4px black;
+    }
+    .project h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      border-bottom: 2px solid white;
+      padding-bottom: 0.5rem;
+    }
+    .project p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    a {
+      color: inherit;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+    footer {
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      border-top: 4px solid white;
+      font-size: 0.8rem;
+    }
+
+    /* Popup styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+    .popup .frame-container {
+      position: relative;
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9; /* 1280x720 */
+      background: #000;
+      border: 6px solid white;
+      box-shadow: 8px 8px white;
+    }
+    .popup iframe {
+      width: 100%;
+      height: 100%;
+    }
+    .popup .controls {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .close-btn, .newpage-btn {
+      background: white;
+      color: black;
+      padding: 0.5rem 1rem;
+      border: 3px solid black;
+      cursor: pointer;
+      font-family: "Press Start 2P", monospace;
+      box-shadow: 3px 3px black;
+      font-size: 0.8rem;
+      min-width: 150px;
+      text-align: center;
+    }
+    .close-btn:hover, .newpage-btn:hover {
+      background: black;
+      color: white;
+      border: 3px solid white;
+      box-shadow: 3px 3px white;
+    }
+
+    /* Mobile (iPhone 12 ~ 390x844 viewport) */
+    @media (max-width: 430px) {
+      .popup .frame-container {
+        width: 90%;
+        aspect-ratio: 390 / 844; /* lock to iPhone 12 aspect ratio */
+        max-height: 80%;
+      }
+      header h1 {
+        font-size: 1.3rem;
+      }
+      header p {
+        font-size: 0.85rem;
+      }
+      .links a {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem;
+        min-width: 100px;
+      }
+      .project h2 {
+        font-size: 1rem;
+      }
+      .close-btn, .newpage-btn {
+        min-width: 120px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Adam Drihany | Portfolio</h1>
+    <p>Engineering Student • Hardware Innovator • Maker</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/adamdrihany/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/adamdrhy" target="_blank">GitHub</a>
+    </div>
+  </header>
+
+  <main class="projects">
+    <section class="project">
+      <h2>XPEN — Smart Writing Device</h2>
+      <p><a onclick="openPopup('https://www.youtube.com/embed/k_mhr3o9YO4')">▶ Watch Presentation</a></p>
+      <p><a onclick="openPopup('https://drive.google.com/file/d/1fcAooBuWG0td7cde7aZSK2yovf8__znB/preview')">View Project Report</a></p>
+    </section>
+
+    <section class="project">
+      <h2>Custom Watercooled Computers</h2>
+      <p><a onclick="openPopup('https://docs.google.com/document/d/1pCX-Ew-DImpg2qBsScs81ZrlSj46uEfmlYsYz-qZzSM/preview')">View Technical Report</a></p>
+    </section>
+
+    <section class="project">
+      <h2>Idasen Desk Controller</h2>
+      <p><a onclick="openPopup('https://www.youtube.com/embed/yCZHsyiz4yg')">▶ Watch Demo Video</a></p>
+      <p><a href="https://github.com/adamdrhy/idasen-desk-controller" target="_blank">Explore on GitHub</a></p>
+      <p><a href="https://www.thingiverse.com/thing:7103519" target="_blank">View on Thingiverse</a></p>
+    </section>
+
+    <section class="project">
+      <h2>Drone Engineering Project</h2>
+      <p><a onclick="openPopup('https://docs.google.com/document/d/12oq5QMuKZcgDpPGC5chBFujEBIf7FSppGBmz1Qygkzc/preview')">View Project Report</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Adam Drihany</p>
+  </footer>
+
+  <!-- Popup container -->
+  <div class="popup" id="popup">
+    <div class="frame-container">
+      <iframe id="popupFrame" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div class="controls">
+      <button class="close-btn" onclick="closePopup()">Close</button>
+      <a id="newPageLink" href="#" target="_blank"><button class="newpage-btn">Open in a New Tab</button></a>
+    </div>
+  </div>
+
+  <script>
+    function openPopup(url) {
+      document.getElementById('popupFrame').src = url;
+      document.getElementById('newPageLink').href = url.replace('/preview','/view');
+      document.getElementById('popup').style.display = 'flex';
+    }
+    function closePopup() {
+      document.getElementById('popupFrame').src = '';
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
